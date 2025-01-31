@@ -1,0 +1,177 @@
+/* Arquivo: style.css */
+
+bo
+body {
+    font-family: Arial, sans-serif;
+    
+    backgro
+
+    ba
+background-color: #f4f4f4;
+    
+   
+margin: 0;
+    
+    paddin
+
+    pa
+
+  
+padding: 0;
+    
+    disp
+
+   
+display: flex;
+    
+    justify-con
+
+    justi
+
+  
+justify-content: center;
+    
+    align
+align-items: center;
+    
+    he
+height: 100vh;
+}
+
+.container {
+    
+    backg
+
+   
+background: white;
+    
+    padd
+
+   
+padding: 20px;
+    border-radius: 10px;
+    
+    box-sha
+
+    box
+
+   
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+    
+width: 400px;
+    
+    text-
+
+   
+text-align: center;
+}
+
+h1 {
+    
+    colo
+
+  
+color: #333;
+}
+
+
+}
+
+labe
+label {
+    
+ 
+display: block;
+    
+    
+margin-top: 10px;
+    
+    f
+font-weight: bold;
+}
+
+
+}
+
+inp
+
+}
+input {
+    
+   
+width: 100%;
+    padding: 8px;
+    
+ 
+margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+}
+
+butto
+button {
+    
+    mar
+
+  
+margin-top: 15px;
+    
+    backgr
+
+    
+background: #007bff;
+    
+    col
+
+  
+color: white;
+    
+    bord
+
+    
+border: none;
+    
+  
+padding: 10px;
+    
+  
+width: 100%;
+    
+   
+border-radius: 5px;
+    cursor: pointer;
+    
+    fo
+
+   
+font-size: 16px;
+}
+
+
+}
+button:hover {
+    
+    backgroun
+
+    bac
+background: #0056b3;
+}
+
+#resultado {
+    
+    m
+margin-top: 20px;
+    padding: 10px;
+    
+    backg
+
+    
+background: #e9ecef;
+    
+    
+border-radius: 5px;
+}
