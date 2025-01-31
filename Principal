@@ -3,49 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronograma de Estudos</title>
+    <title>Meu Ciclo de Estudos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Gerador de Cronograma de Estudos</h1>
+        <h1>Gerador de Ciclo de Estudos</h1>
+        
         <label for="materias">Matérias (separadas por vírgula):</label>
         <input type="text" id="materias" placeholder="Ex: Matemática, Português">
         
-        <label for="dias">Dias Disponíveis:</label>
-        <input type="number" id="dias" min="1" value="30">
+        <label for="questoes">Número de Questões Resolvidas:</label>
+        <input type="number" id="questoes" min="1" placeholder="Ex: 50">
         
-        <label for="tempo">Tempo Diário de Estudo (minutos):</label>
-        <input type="number" id="tempo" min="10" value="180">
+        <label for="erros">Número de Erros:</label>
+        <input type="number" id="erros" min="0" placeholder="Ex: 10">
         
-        <button onclick="gerarCronograma()">Gerar Cronograma</button>
+        <button onclick="gerarCiclo()">Gerar Ciclo</button>
         
         <div id="resultado"></div>
     </div>
     
     <script>
-        function gerarCronograma() {
+        function gerarCiclo() {
             const materiasInput = document.getElementById('materias').value;
-            const dias = parseInt(document.getElementById('dias').value);
-            const tempoDiario = parseInt(document.getElementById('tempo').value);
+            const questoes = parseInt(document.getElementById('questoes').value);
+            const erros = parseInt(document.getElementById('erros').value);
             const resultadoDiv = document.getElementById('resultado');
             
-            if (!materiasInput) {
-                resultadoDiv.innerHTML = '<p style="color:red;">Por favor, insira pelo menos uma matéria.</p>';
+            if (!materiasInput || isNaN(questoes) || isNaN(erros)) {
+                resultadoDiv.innerHTML = '<p style="color:red;">Preencha todos os campos corretamente.</p>';
                 return;
             }
             
             const materias = materiasInput.split(',').map(m => m.trim());
-            let cronograma = '';
+            let cronograma = '<h2>Seu Ciclo de Estudos</h2>';
             
-            for (let i = 0; i < dias; i++) {
-                cronograma += `<h3>Dia ${i + 1}</h3>`;
-                let tempoPorMateria = Math.floor(tempoDiario / materias.length);
-                
-                materias.forEach(materia => {
-                    cronograma += `<p>📚 ${materia} - ⏳ ${tempoPorMateria} min</p>`;
-                });
-            }
+            materias.forEach(materia => {
+                const dificuldade = (erros / questoes) * 100;
+                let tempoExtra = dificuldade > 30 ? 'Revisão Intensiva' : 'Revisão Normal';
+                cronograma += `<p>📘 ${materia}: ${tempoExtra}</p>`;
+            });
             
             resultadoDiv.innerHTML = cronograma;
         }
